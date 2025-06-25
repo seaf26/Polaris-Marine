@@ -29,7 +29,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white dark:bg-blue-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Marine Pattern Background */}
         <div className="absolute inset-0 pointer-events-none opacity-10 z-0">
@@ -47,25 +47,25 @@ const About = () => {
           <div>
             <div className="flex items-center mb-6">
               <div className="w-2 h-10 bg-blue-600 rounded-full mr-4"></div>
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-900">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white">
                 Who We Are
               </h2>
             </div>
-            <p className="text-base md:text-lg text-gray-600 mb-4 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 dark:text-blue-100 mb-4 leading-relaxed">
               Polarise is a leading marine construction company providing tailored solutions for the maritime and offshore sectors. We take pride in building durable, high-performance vessels and marine structures that meet international standards and client-specific requirements.
             </p>
-            <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 dark:text-blue-100 mb-6 leading-relaxed">
               Our team combines technical expertise with a commitment to safety and innovation — ensuring smooth sailing from concept to completion.
             </p>
             {/* Stats Grid in Glass Card */}
-            <div className="grid grid-cols-2 gap-4 bg-white/30 backdrop-blur-lg rounded-2xl shadow-xl border border-blue-100 p-4">
+            <div className="grid grid-cols-2 gap-4 bg-white/30 dark:bg-blue-900/40 backdrop-blur-lg rounded-2xl shadow-xl border border-blue-100 dark:border-blue-900 p-4">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center p-2">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <stat.icon className="h-5 w-5 text-blue-600" />
+                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-800 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <stat.icon className="h-5 w-5 text-blue-600 dark:text-blue-300" />
                   </div>
-                  <div className="text-xl font-bold text-gray-900 mb-1 countup" data-value={stat.value}>{stat.value}</div>
-                  <div className="text-gray-600 text-xs">{stat.label}</div>
+                  <div className="text-xl font-bold text-gray-900 dark:text-white mb-1 countup" data-value={stat.value}>{stat.value}</div>
+                  <div className="text-gray-600 dark:text-blue-100 text-xs">{stat.label}</div>
                 </div>
               ))}
             </div>

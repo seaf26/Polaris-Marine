@@ -13,12 +13,15 @@ import MaritimeHeroSection from "./components/maritime-hero-section"
 import MansoryDemo from "./components/MansoryDemo"
 import { NavbarDemo } from './components/NavbarDemo';
 
+
 function App() {
+
   return (
     <div className="min-h-screen">
-      <NavbarDemo />
+      {/* <NavbarDemo /> */}
+      <Header />
       <MaritimeHeroSection />
-      <Services />
+      {/* <Services /> */}
       <Process />
       <About />
       {/* <Gallery /> */}

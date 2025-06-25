@@ -60,7 +60,7 @@ const items = [
 ];
 export default function MansoryDemo() {
     return (
-        <div className=' h-screen mx-auto px-4 sm:px-6 lg:px-8'>
+        <div id="gallery" className=' h-[100vh] mx-auto px-4 sm:px-6 lg:px-8   max-[750px]:h-[120vh]'>
             <h1 className='text-4xl font-bold text-center text-blue-600 mb-10'>Our Work Gallery</h1>
         <Masonry
             items={items}
