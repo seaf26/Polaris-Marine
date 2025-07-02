@@ -1,18 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Anchor, Sun, Moon } from 'lucide-react';
 import logo from '../assets/s__1_-removebg-preview.png';
-const navItems = [
-  { name: 'Home', id: 'home' },
-  { name: 'Services', id: 'services' },
-  { name: 'Gallery', id: 'gallery' },
-  { name: 'About', id: 'about' },
-  { name: 'Contact', id: 'contact' },
-];
+import { useTranslation } from 'react-i18next';
+
+const LanguageSwitcher: React.FC = () => {
+  const { i18n, t } = useTranslation();
+  const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const lng = e.target.value;
+    i18n.changeLanguage(lng);
+    document.documentElement.dir = lng === 'ar' ? 'rtl' : 'ltr';
+  };
+  return (
+    <div className="ml-auto">
+      <select
+        value={i18n.language}
+        onChange={changeLanguage}
+        className="px-3 py-1 rounded-lg font-semibold transition-colors duration-200 bg-white text-blue-600 border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-label={t('language')}
+      >
+        <option value="en">{t('english')}</option>
+        <option value="ar">{t('arabic')}</option>
+      </select>
+    </div>
+  );
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isDark, setIsDark] = useState(false);
+  const { t } = useTranslation();
+
+  const navItems = [
+    { name: t('home'), id: 'home' },
+    { name: t('services'), id: 'services' },
+    { name: t('gallery'), id: 'gallery' },
+    { name: t('about.polaris.title'), id: 'about' },
+    { name: t('contact'), id: 'contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +94,7 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             {/* <Anchor className="h-8 w-8 text-blue-700 dark:text-blue-300" /> */}
             <img src={logo} alt="hello" className='w-12 object-cover '  />
-            <span className="text-2xl font-bold text-blue-800 dark:text-white tracking-tight">Polarise Marine</span>
+            <span className="text-2xl font-bold text-blue-800 dark:text-white tracking-tight">{t('polaris')}</span>
           </div>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8 items-center">
@@ -94,6 +119,7 @@ const Header = () => {
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
+            <LanguageSwitcher />
           </nav>
           {/* Mobile Menu Button */}
           <button
@@ -133,6 +159,7 @@ const Header = () => {
               >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
+              <LanguageSwitcher />
             </div>
           </div>
         )}

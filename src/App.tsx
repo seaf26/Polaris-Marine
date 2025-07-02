@@ -1,36 +1,52 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
 import Process from './components/Process';
-import Gallery from './components/Gallery';
-import About from './components/About';
 import Testimonials from './components/Testimonials';
 // import Emergency from './components/Emergency';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MaritimeHeroSection from "./components/maritime-hero-section"
 import MansoryDemo from "./components/MansoryDemo"
-import { NavbarDemo } from './components/NavbarDemo';
+import ProjectGoal from './components/ProjectGoal';
+import Loading from './components/Loading';
+import NotFound from './components/NotFound';
+import PolarisAbout from './components/PolarisAbout';
+import OurServices from './components/OurServices';
+import WhyPolaris from './components/WhyPolaris';
+import FutureVision from './components/FutureVision';
 
-
-function App() {
-
+function Home() {
   return (
-    <div className="min-h-screen">
-      {/* <NavbarDemo /> */}
+    <>
       <Header />
       <MaritimeHeroSection />
+      <PolarisAbout />
+      <WhyPolaris />
+      <FutureVision />
+      <ProjectGoal />
       {/* <Services /> */}
+      <OurServices />
       <Process />
-      <About />
       {/* <Gallery /> */}
       <MansoryDemo />
       <Testimonials />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <Suspense fallback={<Loading />}> {/* Show loading while lazy components load */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Add more routes as needed, e.g. <Route path="/gallery" element={<Gallery />} /> */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
+}

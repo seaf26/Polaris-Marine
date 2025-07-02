@@ -1,17 +1,19 @@
 import { motion } from "motion/react"
-import img from "../assets/pexels-wolfgang-weiser-467045605-32119532.jpg"
-import img2 from "../assets/pexels-wolfgang-weiser-467045605-32119533.jpg"
-import img3 from "../assets/pexels-tomfisk-3840447.jpg"
+import img1 from "../assets/IMG-20250626-WA0018.jpg"
+import img2 from "../assets/IMG-20250626-WA0019.jpg"
+import img3 from "../assets/IMG-20250626-WA0020.jpg"
 import { useState, useEffect } from "react";
 import Aurora from './Aurora';
 import Auroraa from './Auroraa';
 import AuroraRight from "./AuroraRight";
+import { useTranslation } from 'react-i18next';
 
-const images = [img, img2, img3];
+const images = [img1, img2, img3];
 
 export default function MaritimeHeroSection() {
     const [current, setCurrent] = useState(0);
     const [fade, setFade] = useState(true);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -46,7 +48,7 @@ export default function MaritimeHeroSection() {
                 </div>
                 <div className="px-4 py-4 md:py-10 w-full">
                     <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-white md:text-4xl lg:text-7xl drop-shadow-lg">
-                        {"Crafting Marine Construction & Offshore Engineering".split(" ").map((word, index) => (
+                        {t('maritimeHeroTitle').split(" ").map((word, index) => (
                             <motion.span
                                 key={index}
                                 initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
@@ -68,7 +70,7 @@ export default function MaritimeHeroSection() {
                         transition={{ duration: 0.3, delay: 0.8 }}
                         className="relative z-10 mx-auto max-w-3xl py-4 text-center text-lg font-normal text-blue-100"
                     >
-                        At Polarise, we transform vision into reality through world-class marine construction, precision-engineered vessels, and reliable offshore solutions. With unmatched expertise and a commitment to quality, we build more than just structures — we build trust across the seas.
+                        {t('maritimeHeroDesc')}
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -77,12 +79,11 @@ export default function MaritimeHeroSection() {
                         className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
                     >
                         <button className="w-60 transform rounded-lg bg-white text-blue-700 font-semibold px-6 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-100 shadow-md">
-                            Build With Us
+                            {t('buildWithUs')}
                         </button>
                         <a href="#contact">
-
                         <button className="w-60 transform rounded-lg border border-blue-200 bg-blue-50 text-blue-700 font-semibold px-6 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white shadow-md">
-                            Contact Us
+                            {t('contactUs')}
                         </button>
                         </a>
                     </motion.div>

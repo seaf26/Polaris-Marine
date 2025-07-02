@@ -1,50 +1,28 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import img1 from '../assets/IMG-20250626-WA0018.jpg';
+import img2 from '../assets/IMG-20250626-WA0019.jpg';
+import img3 from '../assets/IMG-20250626-WA0020.jpg';
+import img4 from '../assets/IMG-20250626-WA0021.jpg';
+import img5 from '../assets/IMG-20250626-WA0022.jpg';
+import img6 from '../assets/IMG-20250626-WA0023.jpg';
+import img7 from '../assets/IMG-20250626-WA0024.jpg';
+import img8 from '../assets/IMG-20250626-WA0025.jpg';
+import img9 from '../assets/IMG-20250626-WA0026.jpg';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const galleryImages = [
-    {
-      src: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Engine Maintenance',
-      category: 'Maintenance'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Luxury Yacht Service',
-      category: 'Repairs'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Marina Facilities',
-      category: 'Marina'
-    },
-    {
-      src: 'https://images.pexels.com/photos/164336/pexels-photo-164336.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Boat Transport',
-      category: 'Transport'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Hull Restoration',
-      category: 'Restoration'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Professional Team',
-      category: 'Team'
-    },
-    {
-      src: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Quality Workmanship',
-      category: 'Maintenance'
-    },
-    {
-      src: 'https://images.pexels.com/photos/164336/pexels-photo-164336.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
-      title: 'Modern Equipment',
-      category: 'Equipment'
-    }
+    { src: img1, title: 'Barge Construction Phase 1', category: 'Construction' },
+    { src: img2, title: 'Steel Plate Shaping', category: 'Fabrication' },
+    { src: img3, title: 'Welding & Assembly', category: 'Assembly' },
+    { src: img4, title: 'Hull Completion', category: 'Hull' },
+    { src: img5, title: 'Engine Installation', category: 'Engineering' },
+    { src: img6, title: 'Electrical Systems Setup', category: 'Systems' },
+    { src: img7, title: 'Painting & Finishing', category: 'Finishing' },
+    { src: img8, title: 'Safety Inspection', category: 'Safety' },
+    { src: img9, title: 'Barge Launch Event', category: 'Launch' },
   ];
 
   const openLightbox = (index: number) => {

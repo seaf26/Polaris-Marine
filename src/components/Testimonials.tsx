@@ -1,41 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
-      name: 'Captain James Mitchell',
-      role: 'Yacht Owner',
+      name: t('testimonial1_name'),
+      role: t('testimonial1_role'),
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'AquaMarine Services has been maintaining my 45-foot yacht for over 8 years. Their attention to detail and professional service is unmatched. I trust them completely with my vessel.',
-      location: 'Marina Bay'
+      text: t('testimonial1_text'),
+      location: t('testimonial1_location')
     },
     {
-      name: 'Sarah Thompson',
-      role: 'Fishing Boat Owner',
+      name: t('testimonial2_name'),
+      role: t('testimonial2_role'),
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'When my engine failed 20 miles offshore, AquaMarine\'s emergency service saved the day. They had me back on the water within hours. Exceptional service and fair pricing.',
-      location: 'Harbor Point'
+      text: t('testimonial2_text'),
+      location: t('testimonial2_location')
     },
     {
-      name: 'Michael Rodriguez',
-      role: 'Commercial Fleet Manager',
+      name: t('testimonial3_name'),
+      role: t('testimonial3_role'),
       image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'Managing a fleet of 12 vessels, I need reliable service partners. AquaMarine consistently delivers quality work on time and within budget. They\'re our go-to marine service provider.',
-      location: 'Commercial Harbor'
+      text: t('testimonial3_text'),
+      location: t('testimonial3_location')
     },
     {
-      name: 'Lisa Chen',
-      role: 'Sailboat Enthusiast',
+      name: t('testimonial4_name'),
+      role: t('testimonial4_role'),
       image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
       rating: 5,
-      text: 'The team at AquaMarine restored my vintage sailboat to better-than-new condition. Their craftsmanship and knowledge of classic boats is impressive. Highly recommended!',
-      location: 'Sunset Marina'
+      text: t('testimonial4_text'),
+      location: t('testimonial4_location')
     }
   ];
 
@@ -67,11 +69,10 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            What Our Clients Say
+            {t('testimonials')}
           </h2>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what boat owners throughout the region 
-            have to say about our marine services.
+            {t('testimonialsDesc')}
           </p>
         </div>
 

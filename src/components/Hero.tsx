@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Phone, Anchor, Star, Users, Award } from 'lucide-react';
 
+import img1 from '../assets/IMG-20250626-WA0018.jpg';
+import img2 from '../assets/IMG-20250626-WA0019.jpg';
+import img3 from '../assets/IMG-20250626-WA0020.jpg';
+import img4 from '../assets/IMG-20250626-WA0021.jpg';
+import img5 from '../assets/IMG-20250626-WA0022.jpg';
+
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
-  const backgroundImages = [
-    'https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
-    'https://images.pexels.com/photos/164336/pexels-photo-164336.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop'
-  ];
+  const backgroundImages = [img1, img2, img3, img4, img5];
 
   const stats = [
     { icon: Users, value: '2,500+', label: 'Happy Customers' },
