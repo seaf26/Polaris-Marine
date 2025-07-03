@@ -28,7 +28,7 @@ const OurServices: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-blue-950 dark:via-blue-900 dark:to-blue-800 overflow-hidden" data-aos="fade-up">
+    <section id="services" className="relative py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-blue-950 dark:via-blue-900 dark:to-blue-800 overflow-hidden" data-aos="fade-up">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-white mb-4 leading-tight drop-shadow-lg">

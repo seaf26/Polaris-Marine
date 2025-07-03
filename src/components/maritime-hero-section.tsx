@@ -27,6 +27,7 @@ export default function MaritimeHeroSection() {
     }, [current]);
 
     return (
+        <section id="home">
         <>
         
 {/* {            <div className="absolute z-0 h-[100vh] right-0 max-[1379px]:hidden">
@@ -126,6 +127,7 @@ export default function MaritimeHeroSection() {
             </div> */}
            
         </>
+        </section>
 
     )
 }

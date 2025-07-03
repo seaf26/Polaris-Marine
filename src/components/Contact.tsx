@@ -1,31 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
+  const [state, handleSubmit] = useForm("mkgberyq");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert(t('thankYou'));
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  if (state.succeeded) {
+    return (
+      <section id="contact" className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {t('thankYou')}
+            </h2>
+            <p className="text-xl text-blue-600 max-w-3xl mx-auto">
+              {t('form Submitted Successfully')}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contact" className="py-20 bg-gray-900 ">
@@ -52,13 +49,18 @@ const Contact = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">{t('phoneLabel')}</h4>
                   <p className="text-gray-300">
-                    <a href="tel:+1-555-0123" className="hover:text-blue-400 transition-colors">
+                    <a href="tel:+201111111206" className="hover:text-blue-400 transition-colors">
                       {t('phoneMain')}
                     </a>
                   </p>
                   <p className="text-gray-300">
-                    <a href="tel:+1-555-0124" className="hover:text-blue-400 transition-colors">
+                    <a href="tel:+201006530395" className="hover:text-blue-400 transition-colors">
                       {t('phoneEmergency')}
+                    </a>
+                  </p>
+                  <p className="text-gray-300">
+                    <a href="tel:+201145117071" className="hover:text-blue-400 transition-colors">
+                      {t('phoneThird')}
                     </a>
                   </p>
                 </div>
@@ -71,7 +73,7 @@ const Contact = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white mb-1">{t('emailLabel')}</h4>
                   <p className="text-gray-300">
-                    <a href="mailto:info@aquamarineservices.com" className="hover:text-blue-400 transition-colors">
+                    <a href="mailto:info@polarismarine.com" className="hover:text-blue-400 transition-colors">
                       {t('emailMain')}
                     </a>
                   </p>
@@ -119,10 +121,14 @@ const Contact = () => {
                     id="name"
                     name="name"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder={t('fullNamePlaceholder')}
+                  />
+                  <ValidationError 
+                    prefix="Name" 
+                    field="name"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
                   />
                 </div>
                 
@@ -135,10 +141,14 @@ const Contact = () => {
                     id="email"
                     name="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder={t('emailPlaceholder')}
+                  />
+                  <ValidationError 
+                    prefix="Email" 
+                    field="email"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
                   />
                 </div>
               </div>
@@ -152,10 +162,14 @@ const Contact = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     placeholder={t('phonePlaceholder')}
+                  />
+                  <ValidationError 
+                    prefix="Phone" 
+                    field="phone"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
                   />
                 </div>
                 
@@ -166,8 +180,6 @@ const Contact = () => {
                   <select
                     id="service"
                     name="service"
-                    value={formData.service}
-                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
                     <option value="">{t('selectService')}</option>
@@ -178,6 +190,12 @@ const Contact = () => {
                     <option value="transport">{t('transport')}</option>
                     <option value="consulting">{t('consulting')}</option>
                   </select>
+                  <ValidationError 
+                    prefix="Service" 
+                    field="service"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
+                  />
                 </div>
               </div>
 
@@ -190,20 +208,31 @@ const Contact = () => {
                   name="message"
                   required
                   rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                   placeholder={t('messagePlaceholder')}
                 ></textarea>
+                <ValidationError 
+                  prefix="Message" 
+                  field="message"
+                  errors={state.errors}
+                  className="text-red-500 text-sm mt-1"
+                />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center"
+                disabled={state.submitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center disabled:transform-none"
               >
-                {t('submit')}
+                {state.submitting ? t('sending') : t('submit')}
                 <Send className="ml-2 h-5 w-5" />
               </button>
+
+              {state.errors && Object.keys(state.errors).length > 0 && (
+                <div className="text-red-500 text-sm text-center">
+                  {t('formError')}
+                </div>
+              )}
             </form>
           </div>
         </div>

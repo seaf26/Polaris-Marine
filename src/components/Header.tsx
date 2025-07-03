@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Anchor, Sun, Moon } from 'lucide-react';
-import logo from '../assets/s__1_-removebg-preview.png';
+import logo from '../assets/polar50.png';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitcher: React.FC = () => {
@@ -31,29 +31,43 @@ const Header = () => {
   const [isDark, setIsDark] = useState(false);
   const { t } = useTranslation();
 
-  const navItems = [
+  const navItems = React.useMemo(() => [
     { name: t('home'), id: 'home' },
     { name: t('services'), id: 'services' },
     { name: t('gallery'), id: 'gallery' },
     { name: t('about.polaris.title'), id: 'about' },
+    { name: t('process'), id: 'process' },
     { name: t('contact'), id: 'contact' },
-  ];
+  ], [t]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 80;
+      const scrollPosition = window.scrollY + 100; // Add some offset for header height
       let currentSection = 'home';
-      for (const item of navItems) {
+      
+      // Check each section to see which one is currently in view
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const item = navItems[i];
         const el = document.getElementById(item.id);
-        if (el && el.offsetTop <= scrollPosition) {
-          currentSection = item.id;
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // If the section is in view (top of section is above viewport + offset)
+          if (rect.top <= 100) {
+            currentSection = item.id;
+            break;
+          }
         }
       }
+      
       setActiveSection(currentSection);
     };
+    
+    // Call once on mount to set initial active section
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navItems]);
 
   useEffect(() => {
     // On mount, check localStorage or system preference
@@ -93,16 +107,16 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
             {/* <Anchor className="h-8 w-8 text-blue-700 dark:text-blue-300" /> */}
-            <img src={logo} alt="hello" className='w-12 object-cover '  />
-            <span className="text-2xl font-bold text-blue-800 dark:text-white tracking-tight">{t('polaris')}</span>
+            <img src={logo} alt="hello" className='w-10 object-cover' />
+            <span className="text-xl font-bold text-blue-800 dark:text-white tracking-tight">{t('polaris')}</span>
           </div>
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex space-x-6 items-center">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`font-medium transition-colors px-1 pb-1 border-b-2 ${
+                className={`font-medium transition-colors px-2 pb-1 border-b-2 whitespace-nowrap ${
                   activeSection === item.id
                     ? 'text-blue-700 dark:text-blue-300 border-blue-500 dark:border-blue-400' 
                     : 'text-blue-700 dark:text-blue-200 border-transparent hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500'
@@ -114,7 +128,7 @@ const Header = () => {
             {/* Dark mode toggle button */}
             <button
               onClick={toggleDarkMode}
-              className="ml-6 p-2 rounded-full border border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-800 transition-colors duration-200"
+              className="ml-4 p-2 rounded-full border border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-800 transition-colors duration-200"
               aria-label="Toggle dark mode"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
