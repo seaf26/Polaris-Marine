@@ -46,13 +46,13 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-gray-50">
+    <section id="gallery" className="py-20 bg-gray-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-hero">
             Our Work Gallery
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto text-subtitle">
             Take a look at some of our recent projects and see the quality craftsmanship 
             that sets AquaMarine Services apart from the competition.
           </p>
@@ -74,8 +74,8 @@ const Gallery = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 right-4">
-                  <div className="text-xs text-blue-300 font-medium mb-1">{image.category}</div>
-                  <div className="text-white font-semibold">{image.title}</div>
+                  <div className="text-xs text-cyan-300 font-medium mb-1 text-caption">{image.category}</div>
+                  <div className="text-white font-semibold text-subtitle">{image.title}</div>
                 </div>
               </div>
             </div>
@@ -96,6 +96,7 @@ const Gallery = () => {
               <button
                 onClick={closeLightbox}
                 className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors duration-200"
+                aria-label="Close image preview"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -104,6 +105,7 @@ const Gallery = () => {
               <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors duration-200"
+                aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -111,14 +113,15 @@ const Gallery = () => {
               <button
                 onClick={nextImage}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors duration-200"
+                aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
 
               {/* Image Info */}
               <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-4">
-                <div className="text-blue-300 text-sm font-medium">{galleryImages[selectedImage].category}</div>
-                <div className="text-white font-semibold text-lg">{galleryImages[selectedImage].title}</div>
+                <div className="text-cyan-300 text-sm font-medium text-caption">{galleryImages[selectedImage].category}</div>
+                <div className="text-white font-semibold text-lg text-subtitle">{galleryImages[selectedImage].title}</div>
               </div>
             </div>
           </div>

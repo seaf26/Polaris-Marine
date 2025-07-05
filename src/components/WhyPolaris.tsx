@@ -33,13 +33,13 @@ const WhyPolaris: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 dark:from-blue-950 dark:via-blue-900 dark:to-blue-800 overflow-hidden" data-aos="fade-up">
+    <section className="relative py-20 bg-gradient-to-br from-blue-100 via-blue-50 to-blue-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 overflow-hidden" data-aos="fade-up">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-white mb-4 leading-tight drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-slate-100 mb-4 leading-tight drop-shadow-lg text-hero">
             {t('whyPolaris.title')}
           </h2>
-          <p className="text-xl text-blue-700 dark:text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-700 dark:text-slate-300 max-w-2xl mx-auto text-subtitle">
             {t('whyPolaris.subtitle')}
           </p>
         </div>
@@ -48,15 +48,15 @@ const WhyPolaris: React.FC = () => {
           {reasons.slice(0, 3).map((reason, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center bg-white/90 dark:bg-blue-900/80 rounded-2xl shadow-lg border border-blue-100 dark:border-blue-800 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
+              className="flex flex-col items-center text-center bg-white/90 dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-800 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-slate-700 mb-4 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
                 {reason.icon}
               </div>
-              <h3 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
+              <h3 className="text-xl font-bold text-blue-900 dark:text-slate-100 mb-2 card-title">
                 {reason.title}
               </h3>
-              <p className="text-blue-700 dark:text-blue-100 text-base">
+              <p className="text-blue-700 dark:text-slate-300 text-base font-bold card-body">
                 {reason.desc}
               </p>
             </div>
@@ -67,15 +67,15 @@ const WhyPolaris: React.FC = () => {
             {reasons.slice(3).map((reason, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center text-center bg-white/90 dark:bg-blue-900/80 rounded-2xl shadow-lg border border-blue-100 dark:border-blue-800 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
+                className="flex flex-col items-center text-center bg-white/90 dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
               >
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-800 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-slate-700 mb-4 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
                   {reason.icon}
                 </div>
-                <h3 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-blue-900 dark:text-slate-100 mb-2 card-title">
                   {reason.title}
                 </h3>
-                <p className="text-blue-700 dark:text-blue-100 text-base">
+                <p className="text-blue-700 dark:text-slate-300 text-base font-bold card-body">
                   {reason.desc}
                 </p>
               </div>
@@ -87,15 +87,15 @@ const WhyPolaris: React.FC = () => {
           {reasons.map((reason, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center bg-white/90 dark:bg-blue-900/80 rounded-2xl shadow-lg border border-blue-100 dark:border-blue-800 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
+              className="flex flex-col items-center text-center bg-white/90 dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 p-8 hover:shadow-2xl transition-all duration-300 group w-full max-w-xs"
             >
-              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-800 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 dark:bg-slate-700 mb-4 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
                 {reason.icon}
               </div>
-              <h3 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
+              <h3 className="text-xl font-bold text-blue-900 dark:text-slate-100 mb-2 card-title">
                 {reason.title}
               </h3>
-              <p className="text-blue-700 dark:text-blue-100 text-base">
+              <p className="text-blue-700 dark:text-slate-300 text-base card-body">
                 {reason.desc}
               </p>
             </div>

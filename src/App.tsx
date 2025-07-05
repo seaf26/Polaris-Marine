@@ -7,7 +7,7 @@ import NotFound from './components/NotFound';
 
 // Lazy load larger components
 const Process = lazy(() => import('./components/Process'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
+// const Testimonials = lazy(() => import('./components/Testimonials'));
 const Contact = lazy(() => import('./components/Contact'));
 const MansoryDemo = lazy(() => import('./components/MansoryDemo'));
 const ProjectGoal = lazy(() => import('./components/ProjectGoal'));
@@ -44,9 +44,6 @@ function Home() {
       </Suspense>
       <Suspense fallback={<Loading />}>
         <MansoryDemo />
-      </Suspense>
-      <Suspense fallback={<Loading />}>
-        <Testimonials />
       </Suspense>
       <Suspense fallback={<Loading />}>
         <Contact />

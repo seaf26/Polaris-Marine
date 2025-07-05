@@ -102,13 +102,13 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white dark:bg-blue-950 border-b border-blue-100 dark:border-blue-800 shadow-md transition-all duration-300">
+    <header className="fixed top-0 w-full z-50 bg-white dark:bg-slate-900 border-b border-blue-100 dark:border-slate-700 shadow-md dark:shadow-slate-900/50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
             {/* <Anchor className="h-8 w-8 text-blue-700 dark:text-blue-300" /> */}
             <img src={logo} alt="hello" className='w-10 object-cover' />
-            <span className="text-xl font-bold text-blue-800 dark:text-white tracking-tight">{t('polaris')}</span>
+            <span className="text-xl font-bold text-blue-800 dark:text-slate-100 tracking-tight text-shadow-sm">{t('polaris')}</span>
           </div>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-6 items-center">
@@ -116,10 +116,10 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`font-medium transition-colors px-2 pb-1 border-b-2 whitespace-nowrap ${
+                className={`font-medium transition-colors px-2 pb-1 border-b-2 whitespace-nowrap nav-text ${
                   activeSection === item.id
-                    ? 'text-blue-700 dark:text-blue-300 border-blue-500 dark:border-blue-400' 
-                    : 'text-blue-700 dark:text-blue-200 border-transparent hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500'
+                    ? 'text-blue-700 dark:text-cyan-300 border-blue-500 dark:border-cyan-400' 
+                    : 'text-blue-700 dark:text-slate-300 border-transparent hover:text-blue-500 dark:hover:text-cyan-400 hover:border-blue-300 dark:hover:border-cyan-500'
                 }`}
               >
                 {item.name}
@@ -128,7 +128,7 @@ const Header = () => {
             {/* Dark mode toggle button */}
             <button
               onClick={toggleDarkMode}
-              className="ml-4 p-2 rounded-full border border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-800 transition-colors duration-200"
+              className="ml-4 p-2 rounded-full border border-blue-100 dark:border-slate-700 bg-white dark:bg-slate-800 text-blue-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200"
               aria-label="Toggle dark mode"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -150,16 +150,16 @@ const Header = () => {
         </div>
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-blue-950 border border-blue-100 dark:border-blue-800 rounded-lg mt-2 p-4 shadow-lg">
+          <div className="md:hidden bg-white dark:bg-slate-900 border border-blue-100 dark:border-slate-700 rounded-lg mt-2 p-4 shadow-lg dark:shadow-slate-900/50">
             <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left py-2 px-2 rounded font-medium transition-colors mb-1 ${
+                                                    className={`block w-full text-left py-2 px-2 rounded font-medium transition-colors mb-1 nav-text ${
                     activeSection === item.id
-                      ? 'text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900' 
-                      : 'text-blue-700 dark:text-blue-200 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900'
+                      ? 'text-blue-700 dark:text-cyan-300 bg-blue-50 dark:bg-slate-800' 
+                      : 'text-blue-700 dark:text-slate-300 hover:text-blue-500 dark:hover:text-cyan-400 hover:bg-blue-50 dark:hover:bg-slate-800'
                   }`}
                 >
                   {item.name}
@@ -168,7 +168,7 @@ const Header = () => {
               {/* Dark mode toggle for mobile */}
               <button
                 onClick={toggleDarkMode}
-                className="mt-2 p-2 rounded-full border border-blue-100 dark:border-blue-800 bg-white dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-50 dark:hover:bg-blue-800 transition-colors duration-200 self-start"
+                className="mt-2 p-2 rounded-full border border-blue-100 dark:border-slate-700 bg-white dark:bg-slate-800 text-blue-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors duration-200 self-start"
                 aria-label="Toggle dark mode"
               >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

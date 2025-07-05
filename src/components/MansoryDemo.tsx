@@ -9,6 +9,11 @@ import img6 from '../assets/IMG-20250626-WA0023.jpg';
 import img7 from '../assets/IMG-20250626-WA0024.jpg';
 import img8 from '../assets/IMG-20250626-WA0025.jpg';
 import img9 from '../assets/IMG-20250626-WA0026.jpg';
+import img10 from "../assets/IMG-20250704-WA0029.jpg"
+import im11 from "../assets/IMG-20250704-WA0030.jpg"
+import img12 from "../assets/IMG-20250704-WA0031.jpg"
+import img13 from "../assets/IMG-20250704-WA0032.jpg"
+import img14 from "../assets/IMG-20250704-WA0033.jpg"
 import { useTranslation } from 'react-i18next';
 
 const items = [
@@ -21,12 +26,23 @@ const items = [
     { id: "7", img: img7, url: "#", height: 390 },
     { id: "8", img: img8, url: "#", height: 370 },
     { id: "9", img: img9, url: "#", height: 430 },
+    {id:"10" , img: img10, url:'#', height:400},
+    { id: "11", img: im11, url: "#", height: 380 },
+    { id: "12", img: img12, url: "#", height: 410 },
+    { id: "13", img: img13, url: "#", height: 390 },
+    { id: "14", img: img14, url: "#", height: 420 },
+
+
+
+    
+
+
 ];
 
 export default function MansoryDemo() {
     const { t } = useTranslation();
     return (
-        <div dir="ltr" id="gallery" className=' h-[100vh] mx-auto px-4 sm:px-6 lg:px-8   max-[750px]:h-[120vh]'>
+        <section dir="ltr" id="gallery" className='py-20 mx-auto px-4 sm:px-6 lg:px-8'>
             <h1 className='text-4xl font-bold text-center text-blue-600 mb-10'>{t('galleryTitle')}</h1>
         <Masonry
             items={items}
@@ -39,6 +55,6 @@ export default function MansoryDemo() {
             blurToFocus={true}
             colorShiftOnHover={false}
             />
-        </div>
+        </section>
     )
 }

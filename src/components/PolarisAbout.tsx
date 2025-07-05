@@ -1,7 +1,7 @@
 import React from 'react';
 import { Globe2, Ship, Wrench, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import aboutImage from '../assets/pexels-wolfgang-weiser-467045605-32119532.jpg';
+import aboutImage from '../assets/ancient-egyptian-boats-1.webp';
 
 interface PolarisAboutProps {
   t?: (key: string) => string;
@@ -26,9 +26,9 @@ const PolarisAbout: React.FC<PolarisAboutProps> = ({  }) => {
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 dark:from-blue-900 dark:via-blue-800 dark:to-blue-700 overflow-hidden" data-aos="fade-up">
+    <section id="about" className="relative py-20 bg-gradient-to-r from-blue-300 via-blue-200 to-blue-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 overflow-hidden" data-aos="fade-up">
       {/* Decorative SVG wave top */}
-      <svg className="absolute top-0 left-0 w-full h-24 text-blue-200 dark:text-blue-950" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute top-0 left-0 w-full h-24 text-blue-200 dark:text-slate-950" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="currentColor" fillOpacity="0.2" d="M0,40 C360,120 1080,0 1440,80 L1440,120 L0,120 Z" />
       </svg>
       
@@ -40,12 +40,12 @@ const PolarisAbout: React.FC<PolarisAboutProps> = ({  }) => {
               <Globe2 className="w-12 h-12 text-blue-600 dark:text-blue-300" />
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-white mb-6 leading-tight drop-shadow-lg">
-            <span className="bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-slate-100 mb-6 leading-tight drop-shadow-lg text-hero">
+            <span className="bg-gradient-to-r from-cyan-600 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
               {t ? t('about.polaris.title') : 'About Polaris'}
             </span>
           </h2>
-          <div className="text-lg md:text-xl font-semibold text-blue-900 dark:text-blue-100 max-w-4xl mx-auto drop-shadow">
+          <div className="text-lg md:text-xl font-semibold text-blue-900 dark:text-slate-300 max-w-4xl mx-auto drop-shadow text-subtitle">
             {t
               ? t('about.polaris.intro')
               : `Polaris was founded by three senior experts with decades of experience in marine navigation, shipbuilding, and industrial project execution. This diverse leadership empowers us to deliver fully integrated solutions that meet the highest international standards of quality, safety, and sustainability.`}
@@ -80,8 +80,8 @@ const PolarisAbout: React.FC<PolarisAboutProps> = ({  }) => {
 
           {/* Right side - Content */}
           <div className="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="400">
-            <div className="bg-white/90 dark:bg-blue-900/80 rounded-3xl shadow-2xl p-8 border border-blue-100 dark:border-blue-800">
-              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-6 text-center">
+            <div className="bg-white/90 dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-blue-100 dark:border-slate-700">
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-6 text-center text-title">
                 {t ? t('about.polaris.leadership') : 'Our leadership integrates:'}
               </h3>
               
@@ -89,12 +89,12 @@ const PolarisAbout: React.FC<PolarisAboutProps> = ({  }) => {
                 {expertiseItems.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-800 dark:to-blue-900 rounded-2xl shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg border border-blue-200 dark:border-blue-700"
+                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-slate-700 dark:to-slate-800 rounded-2xl shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg border border-blue-200 dark:border-slate-600"
                   >
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-600 dark:bg-blue-700 text-white shadow-lg">
                       {item.icon}
                     </div>
-                    <span className="text-blue-900 dark:text-blue-100 text-base md:text-lg font-medium flex-1">
+                    <span className="text-blue-900 dark:text-slate-300 text-base md:text-lg font-medium flex-1 text-body">
                       {item.text}
                     </span>
                   </div>
@@ -123,7 +123,7 @@ const PolarisAbout: React.FC<PolarisAboutProps> = ({  }) => {
       </div>
       
       {/* Decorative SVG wave bottom */}
-      <svg className="absolute bottom-0 left-0 w-full h-24 text-blue-200 dark:text-blue-950" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute bottom-0 left-0 w-full h-24 text-blue-200 dark:text-slate-950" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="currentColor" fillOpacity="0.2" d="M0,80 C360,0 1080,120 1440,40 L1440,120 L0,120 Z" />
       </svg>
       

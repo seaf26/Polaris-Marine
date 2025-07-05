@@ -7,15 +7,17 @@ const Contact = () => {
   const { t } = useTranslation();
   const [state, handleSubmit] = useForm("mkgberyq");
 
+  const isRTL = document?.documentElement?.dir === 'rtl';
+
   if (state.succeeded) {
     return (
       <section id="contact" className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-hero">
               {t('thankYou')}
             </h2>
-            <p className="text-xl text-blue-600 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-600 max-w-3xl mx-auto text-subtitle">
               {t('form Submitted Successfully')}
             </p>
           </div>
@@ -25,13 +27,13 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 ">
+    <section id="contact" className="py-20 bg-gray-900 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-hero">
             {t('getInTouch')}
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 dark:text-slate-300 max-w-3xl mx-auto text-subtitle">
             {t('getInTouchDesc')}
           </p>
         </div>
@@ -39,66 +41,66 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-bold text-white mb-6">{t('contactInfo')}</h3>
+            <h3 className="text-2xl font-bold text-white mb-6 text-title">{t('contactInfo')}</h3>
             
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-1">{t('phoneLabel')}</h4>
-                  <p className="text-gray-300">
-                    <a href="tel:+201111111206" className="hover:text-blue-400 transition-colors">
+                  <h4 className="text-lg font-semibold text-white mb-1 text-subtitle">{t('phoneLabel')}</h4>
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
+                    <a href="tel:+201111111206" className="hover:text-blue-400 dark:hover:text-cyan-400 transition-colors">
                       {t('phoneMain')}
                     </a>
                   </p>
-                  <p className="text-gray-300">
-                    <a href="tel:+201006530395" className="hover:text-blue-400 transition-colors">
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
+                    <a href="tel:+201006530395" className="hover:text-blue-400 dark:hover:text-cyan-400 transition-colors">
                       {t('phoneEmergency')}
                     </a>
                   </p>
-                  <p className="text-gray-300">
-                    <a href="tel:+201145117071" className="hover:text-blue-400 transition-colors">
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
+                    <a href="tel:+201145117071" className="hover:text-blue-400 dark:hover:text-cyan-400 transition-colors">
                       {t('phoneThird')}
                     </a>
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-1">{t('emailLabel')}</h4>
-                  <p className="text-gray-300">
-                    <a href="mailto:info@polarismarine.com" className="hover:text-blue-400 transition-colors">
+                  <h4 className="text-lg font-semibold text-white mb-1 text-subtitle">{t('emailLabel')}</h4>
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
+                    <a href="mailto:info@polarismarine.com" className="hover:text-blue-400 dark:hover:text-cyan-400 transition-colors">
                       {t('emailMain')}
                     </a>
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-1">{t('locationLabel')}</h4>
-                  <p className="text-gray-300">
+                  <h4 className="text-lg font-semibold text-white mb-1 text-subtitle">{t('locationLabel')}</h4>
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
                     {t('locationMain')}
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Clock className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white mb-1">{t('hoursLabel')}</h4>
-                  <p className="text-gray-300">
+                  <h4 className="text-lg font-semibold text-white mb-1 text-subtitle">{t('hoursLabel')}</h4>
+                  <p className="text-gray-300 dark:text-slate-300 text-body">
                     {t('hoursMain')}
                   </p>
                 </div>
@@ -108,12 +110,12 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('requestQuote')}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-title">{t('requestQuote')}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 text-caption">
                     {t('fullName')}
                   </label>
                   <input
@@ -133,7 +135,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 text-caption">
                     {t('email')}
                   </label>
                   <input
@@ -155,7 +157,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2 text-caption">
                     {t('phone')}
                   </label>
                   <input
@@ -174,7 +176,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2 text-caption">
                     {t('serviceNeeded')}
                   </label>
                   <select
@@ -200,7 +202,7 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2 text-caption">
                   {t('message')}
                 </label>
                 <textarea
@@ -222,7 +224,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center disabled:transform-none"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center disabled:transform-none btn-text"
               >
                 {state.submitting ? t('sending') : t('submit')}
                 <Send className="ml-2 h-5 w-5" />

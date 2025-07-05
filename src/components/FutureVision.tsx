@@ -56,7 +56,7 @@ const FutureVision: React.FC = () => {
               <h3 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
                 {vision.title}
               </h3>
-              <p className="text-blue-700 dark:text-blue-100 text-base">
+              <p className="text-blue-700 dark:text-blue-100 font-bold text-base">
                 {vision.desc}
               </p>
             </div>
@@ -75,7 +75,7 @@ const FutureVision: React.FC = () => {
                 <h3 className="text-xl font-bold text-blue-900 dark:text-white mb-2">
                   {vision.title}
                 </h3>
-                <p className="text-blue-700 dark:text-blue-100 text-base">
+                <p className="text-blue-700 dark:text-blue-100 font-bold text-base">
                   {vision.desc}
                 </p>
               </div>

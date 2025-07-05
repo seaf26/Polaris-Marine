@@ -156,6 +156,23 @@ import React, {
       });
     }, [columns, items, width]);
   
+    // Calculate the total height needed for the container
+    const containerHeight = useMemo(() => {
+      if (!width) return 0;
+      const colHeights = new Array(columns).fill(0);
+      const gap = 16;
+      const totalGaps = (columns - 1) * gap;
+      const columnWidth = (width - totalGaps) / columns;
+  
+      items.forEach((child) => {
+        const col = colHeights.indexOf(Math.min(...colHeights));
+        const height = child.height / 2;
+        colHeights[col] += height + gap;
+      });
+  
+      return Math.max(...colHeights) + 100; // Add extra padding
+    }, [columns, items, width]);
+  
     const hasMounted = useRef(false);
   
     useLayoutEffect(() => {
@@ -228,7 +245,11 @@ import React, {
     };
   
     return (
-      <div ref={containerRef} className="relative w-full h-full">
+      <div 
+        ref={containerRef} 
+        className="relative w-full"
+        style={{ height: `${containerHeight}px` }}
+      >
         {grid.map((item) => (
           <div
             key={item.id}

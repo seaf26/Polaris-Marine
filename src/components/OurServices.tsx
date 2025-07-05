@@ -28,13 +28,13 @@ const OurServices: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="relative py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-blue-950 dark:via-blue-900 dark:to-blue-800 overflow-hidden" data-aos="fade-up">
+    <section id="services" className="relative py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 overflow-hidden" data-aos="fade-up">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-white mb-4 leading-tight drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 dark:text-slate-100 mb-4 leading-tight drop-shadow-lg text-hero">
             {t('ourServices.title')}
           </h2>
-          <p className="text-xl text-blue-700 dark:text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl text-blue-700 dark:text-slate-300 max-w-2xl mx-auto text-subtitle">
             {t('ourServices.subtitle')}
           </p>
         </div>
@@ -42,25 +42,25 @@ const OurServices: React.FC = () => {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-5 bg-white/90 dark:bg-blue-900/80 rounded-2xl shadow-lg border border-blue-100 dark:border-blue-800 p-7 hover:shadow-2xl transition-all duration-300 group"
+              className="flex items-start gap-5 bg-white/90 dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100 dark:border-slate-700 p-7 hover:shadow-2xl transition-all duration-300 group"
             >
               <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-800 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 {service.icon}
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-blue-900 dark:text-slate-100 mb-2 card-title">
                   {service.title}
                 </h3>
-                <p className="text-blue-700 dark:text-blue-100 text-base">
+                <p className="text-blue-700 dark:text-slate-300 text-base card-body">
                   {service.desc}
                 </p>
               </div>
             </div>
           ))}
         </div>
-        <div className="bg-blue-100 dark:bg-blue-900/60 rounded-xl p-8 shadow text-center max-w-3xl mx-auto">
-          <p className="text-lg md:text-xl text-blue-900 dark:text-blue-100 font-semibold">
-            {t('ourServices.note1')} <span className="text-blue-700 dark:text-yellow-200 font-bold">{t('ourServices.note2')}</span> {t('ourServices.note3')}
+        <div className="bg-blue-100 dark:bg-slate-800/60 rounded-xl p-8 shadow text-center max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-blue-900 dark:text-slate-100 font-semibold text-enhanced">
+            {t('ourServices.note1')} <span className="text-blue-700 dark:text-cyan-300 font-bold">{t('ourServices.note2')}</span> {t('ourServices.note3')}
           </p>
         </div>
       </div>

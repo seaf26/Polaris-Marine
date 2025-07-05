@@ -58,7 +58,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-blue-900 relative overflow-hidden">
+    <section className="py-20 bg-blue-900 dark:bg-slate-900 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -68,10 +68,10 @@ const Testimonials = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-hero">
             {t('testimonials')}
           </h2>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-200 dark:text-slate-300 max-w-3xl mx-auto text-subtitle">
             {t('testimonialsDesc')}
           </p>
         </div>
@@ -87,7 +87,7 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic">
+              <blockquote className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 italic text-body">
                 "{testimonials[currentTestimonial].text}"
               </blockquote>
 
@@ -98,13 +98,13 @@ const Testimonials = () => {
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div className="text-left">
-                  <div className="font-bold text-gray-900 text-lg">
+                  <div className="font-bold text-gray-900 text-lg text-subtitle">
                     {testimonials[currentTestimonial].name}
                   </div>
-                  <div className="text-gray-600">
+                  <div className="text-gray-600 text-body">
                     {testimonials[currentTestimonial].role}
                   </div>
-                  <div className="text-blue-600 text-sm">
+                  <div className="text-blue-600 dark:text-cyan-400 text-sm text-caption">
                     {testimonials[currentTestimonial].location}
                   </div>
                 </div>
@@ -115,6 +115,7 @@ const Testimonials = () => {
             <button
               onClick={prevTestimonial}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-blue-100 hover:bg-blue-200 rounded-full flex items-center justify-center text-blue-600 transition-colors duration-200"
+              aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -122,22 +123,24 @@ const Testimonials = () => {
             <button
               onClick={nextTestimonial}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-blue-100 hover:bg-blue-200 rounded-full flex items-center justify-center text-blue-600 transition-colors duration-200"
+              aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
           </div>
 
           {/* Testimonial Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-8 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-6 h-6 rounded-full transition-all duration-300 mx-1 focus:outline-none ${
                   index === currentTestimonial 
                     ? 'bg-white scale-125' 
                     : 'bg-white/50 hover:bg-white/75'
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>

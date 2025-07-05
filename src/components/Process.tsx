@@ -1,7 +1,7 @@
 import React from 'react';
 import { FileText, Wrench, Briefcase, Globe2, CheckCircle } from 'lucide-react';
-import imgPrep from '../assets/IMG-20250626-WA0018.jpg';
-import imgExec from '../assets/IMG-20250626-WA0020.jpg';
+import imgPrep from '../assets/IMG-20250626-WA0024.jpg';
+import imgExec from '../assets/IMG-20250704-WA0030.jpg';
 import imgPromo from '../assets/IMG-20250626-WA0023.jpg';
 import imgFuture from '../assets/IMG-20250626-WA0026.jpg';
 import { useTranslation } from 'react-i18next';
@@ -90,7 +90,7 @@ const Process = () => {
   ];
 
   const PhaseCard = ({ step, index, total }: { step: typeof steps[0]; index: number; total: number }) => (
-    <div className="relative flex flex-col lg:flex-row items-center gap-10 lg:gap-16 bg-white dark:bg-blue-900/80 rounded-3xl shadow-2xl border border-blue-100 dark:border-blue-800 px-6 py-10 md:px-10 md:py-14 transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
+    <div className="relative flex flex-col lg:flex-row items-center gap-10 lg:gap-16 bg-white dark:bg-slate-800/90 dark:backdrop-blur-sm rounded-3xl shadow-2xl border border-blue-100 dark:border-slate-700 px-6 py-10 md:px-10 md:py-14 transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
       {/* Timeline/Stepper */}
       <div className="absolute left-0 top-0 bottom-0 flex flex-col items-center z-10 lg:static lg:mr-0">
         <div className="hidden lg:block w-2 h-full bg-gradient-to-b from-blue-200 via-blue-400 to-blue-600 rounded-full opacity-40" style={{ minHeight: '100%' }}></div>
@@ -103,14 +103,14 @@ const Process = () => {
       </div>
       {/* Content */}
       <div className="flex-1 space-y-6">
-        <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 dark:text-white mb-2 tracking-tight flex items-center gap-3">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-blue-900 dark:text-slate-100 mb-2 tracking-tight flex items-center gap-3 text-title">
           {step.title}
         </h3>
         <ul className="space-y-3">
           {step.details.map((detail: string, detailIndex: number) => (
             <li key={detailIndex} className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
-              <span className="text-gray-700 dark:text-blue-100 text-base leading-relaxed">{detail}</span>
+              <span className="text-gray-700 dark:text-slate-300 text-base font-bold leading-relaxed text-body">{detail}</span>
             </li>
           ))}
         </ul>
@@ -138,13 +138,13 @@ const Process = () => {
   );
 
   return (
-    <section id="process" className="py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-blue-950 dark:via-blue-900 dark:to-blue-800" data-aos="fade-up">
+    <section id="process" className="py-20 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700" data-aos="fade-up">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 dark:text-slate-100 mb-4 text-hero">
             {t('process')}
           </h2>
-          <p className="text-xl text-blue-700 dark:text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-700 dark:text-slate-300 max-w-3xl mx-auto text-subtitle">
             {t('processDesc')}
           </p>
         </div>
@@ -155,17 +155,17 @@ const Process = () => {
         </div>
         {/* CTA Section */}
         <div className="mt-20 text-center">
-          <div className="bg-blue-100 dark:bg-blue-900/60 rounded-2xl p-12 shadow-lg">
-            <h3 className="text-3xl font-bold text-blue-900 dark:text-white mb-4">
-              {t('readyToGetStarted')}
-            </h3>
-            <p className="text-xl text-blue-700 dark:text-blue-100 mb-8 max-w-2xl mx-auto">
-              {t('processCTA')}
-            </p>
+                  <div className="bg-blue-100 dark:bg-slate-800/60 rounded-2xl p-12 shadow-lg">
+          <h3 className="text-3xl font-bold text-blue-900 dark:text-slate-100 mb-4 text-title">
+            {t('readyToGetStarted')}
+          </h3>
+          <p className="text-xl text-blue-700 dark:text-slate-300 mb-8 max-w-2xl mx-auto text-subtitle">
+            {t('processCTA')}
+          </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl btn-text"
               >
                 {t('getFreeQuote')}
               </button>
